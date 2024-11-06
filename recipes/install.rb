@@ -14,7 +14,7 @@ bash "expand vault-#{node['vault']['version']}" do
   not_if "test -f #{node['vault']['lib_path']}/bin/vault-#{node['vault']['version']}"
   code <<-CODE
     cd "#{cache_path}"
-    unzip vault-#{node['vault']['version']}.zip
+    unzip -o vault-#{node['vault']['version']}.zip
     chmod +x vault
     mv vault #{node['vault']['lib_path']}/bin/vault-#{node['vault']['version']}
   CODE
